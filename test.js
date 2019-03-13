@@ -1,6 +1,7 @@
 var assert = require('assert');
 
 const rec = require('.')
+const filmsRecommender = rec(require('./films.js'));
 
 const catalog = [
   {name: 'movie 1', keywords: ['comedy', 'action', 'spielberg']},
@@ -41,6 +42,21 @@ describe('Recommender', function () {
     assert.equal(out.length, 2);
     assert.equal(out[0].name, 'movie 1');
     assert.equal(out[1].name, 'movie 2');
+  });
+
+  it ('should recommend movie 1 due to limit', function() {
+    const recommender = rec(catalog);
+    var out = recommender.limit(1).forQuery('spielberg');
+    assert.equal(out.length, 1);
+    assert.equal(out[0].name, 'movie 1');
+  });
+
+  it ('should recommend sci-fi genre', function() {
+    var out = filmsRecommender.limit(20).forQuery('sci-fi');
+
+    assert.equal(out[0].name, 'inception');
+    assert.equal(out[1].name, 'mad max: fury road');
+    assert.equal(out[2].name, 'the martian');
   });
 
 });

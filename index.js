@@ -17,6 +17,7 @@ FluentRecommenderQuery.prototype.forQuery = function(queryString) {
     }
   }
 
+  if (this.limit > 0) return outputSet.slice(0, this.limit);
   return outputSet;
 }
 
