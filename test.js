@@ -8,6 +8,10 @@ const catalog = [
   {name: 'movie 2', keywords: ['romantic', 'gosling', 'dicaprio', 'spielberg']},
 ];
 
+function assertContainsFilm(lst, filmName) {
+    assert(lst.filter(x => filmName === x.name).length > 0, "Does not contain: " + filmName);
+}
+
 describe('Recommender', function () {
   it ('should recommend catalog for empty string query', function() {
     const recommender = rec(catalog);
@@ -57,6 +61,14 @@ describe('Recommender', function () {
     assert.equal(out[0].name, 'inception');
     assert.equal(out[1].name, 'mad max: fury road');
     assert.equal(out[2].name, 'the martian');
+  });
+
+  it ('should recommend related films', function() {
+    var out = filmsRecommender.limit(20).forRelated('the wolf of wall street');
+
+    assertContainsFilm(out, 'the hateful eight');
+    assertContainsFilm(out, 'django unchained');
+    assertContainsFilm(out, 'inception');
   });
 
 });
