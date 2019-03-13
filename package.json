@@ -4,7 +4,7 @@
   "description": "Film recommendations",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha"
   },
   "keywords": [
     "film",
@@ -13,5 +13,8 @@
     "recommendation"
   ],
   "author": "",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "mocha": "^6.0.2"
+  }
 }
