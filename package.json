@@ -1,6 +1,6 @@
 {
   "name": "esperatv-recommender",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Film recommendations",
   "main": "index.js",
   "scripts": {
