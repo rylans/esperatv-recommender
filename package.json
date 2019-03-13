@@ -1,0 +1,17 @@
+{
+  "name": "esperatv-recommender",
+  "version": "1.0.0",
+  "description": "Film recommendations",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "film",
+    "tv",
+    "movie",
+    "recommendation"
+  ],
+  "author": "",
+  "license": "MIT"
+}
